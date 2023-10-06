@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+.NewPostForm {
+   width: 415px;   
+}
+
+textarea {
+  flex-shrink: 0;
+  height: 300px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.90);
+  width: 100%;
+  resize: none;
+  border: none;
+  padding: 10px;
+}
+
+button {
+    width: 100%;
+    margin: 10px auto auto auto;
+    height: 100%;
+}
