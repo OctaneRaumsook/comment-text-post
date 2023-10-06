@@ -48,7 +48,7 @@ function PostList() {
               <img src={CommentIcon} alt="Comment Icon" width={'36.8px'}/>
               <label>COMMENT</label></button>
             </div>
-            {/* <CommentForm postId={post.id} firestore={firestore} /> */}
+            <CommentForm postId={post.id} firestore={firestore} />
           </li>
         ))}
       </ul>
