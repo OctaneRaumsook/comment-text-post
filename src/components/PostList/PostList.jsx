@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import CommentForm from "../CommentForm";
 // eslint-disable-next-line no-unused-vars
 import { firestore } from "../../firebase/firebase";
 import "./PostList.css";
+import HeartIcon from '../../assets/heart-regular.svg';
+import CommentIcon from '../../assets/comment-regular.svg'
 
 function PostList() {
   const [posts, setPosts] = useState([]);
@@ -39,6 +40,14 @@ function PostList() {
                 <h2>{post.createdAt.toDate().toLocaleString()}</h2></div>
             </div>
             <p>{post.content}</p>
+            <div className="interact-icons-section">
+            <button>
+              <img src={HeartIcon} alt="Heart Icon" width={'36.8px'}/>
+              <label>LIKE</label></button>
+              <button>
+              <img src={CommentIcon} alt="Comment Icon" width={'36.8px'}/>
+              <label>COMMENT</label></button>
+            </div>
             {/* <CommentForm postId={post.id} firestore={firestore} /> */}
           </li>
         ))}

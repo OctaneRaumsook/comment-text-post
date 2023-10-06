@@ -10,9 +10,10 @@ function App() {
     <>
       <div className='grid-container'>
         <section id='UserInterface' className='card'>
-          <div className='profiles'>
-            <h1 className='userName'>Name</h1>
-          </div>
+          <div className="profiles">
+                <img src={"/moutain-and-sky-from-pov-2d.png"} alt="รูปภาพตัวอย่าง" />
+                <div className="user-details"><h1>Name</h1></div>
+            </div>
           <div id="text-field"><NewPostForm firestore={firestore}/></div>
         </section>
         <section id="PostListInterface"><PostList /></section>
