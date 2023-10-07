@@ -14,24 +14,28 @@
 /* เพิ่ม CSS สำหรับ text area container */
 .text-area-container {
   position: relative;
-  display: flex; 
-  align-items: flex-end; 
+  display: flex;
+  align-items: flex-end;
 }
 
 /* ปรับแต่ง textarea ตามความสูงของไอคอน */
 .text-comment-area {
-  flex-grow: 1; 
+  flex-grow: 1;
   border-radius: 8px;
   padding: 10px;
   border: none;
   resize: none;
 }
 
+.text-coment-area:focus {
+  outline: none; /* เพื่อลบเส้นขอบเมื่อ focus */
+}
+
 /* CSS สำหรับปุ่ม Submit */
 .submit-button {
-  position: absolute; 
-  right: 8px; 
-  bottom: 8px; 
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
   background: none;
   border: none;
   cursor: pointer;
@@ -39,22 +43,20 @@
   color: rgba(255, 199, 0, 0.7);
   border-radius: 50%;
   transition: background-color 0.5s, transform 0.2s;
-  width: 40px; 
-  height: 40px; 
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-
 .submit-button:hover {
-    background-color: #c7c7c740; 
-    transform: scale(1.05);
+  background-color: #c7c7c740;
+  transform: scale(1.05);
 }
 
 .submit-button.disabled {
-    cursor: not-allowed; 
-    color: #aaa; 
-    pointer-events: none; 
-  }
+  cursor: not-allowed;
+  color: #aaa;
+  pointer-events: none;
+}

@@ -1,14 +1,11 @@
-/* eslint-disable no-undef */
 import { useEffect, useState } from "react";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import CommentForm from "../CommentForm/CommentForm";
-// eslint-disable-next-line no-unused-vars
 import { firestore } from "../../firebase/firebase";
 import "./PostList.css";
-import IconHeartCircle from "../Icons/IconHeartCircle"
+import IconHeartCircle from "../Icons/IconHeartCircle";
 import IconComment from "../Icons/IconComment";
 import CommentList from "../CommentList/CommentList";
-
 
 function PostList() {
   const [posts, setPosts] = useState([]);
@@ -43,36 +40,45 @@ function PostList() {
   };
 
   return (
-      <ul style={{ paddingLeft: '0px' }} id="comment-ul">
-        {posts.map((post, index) => (
-          <li key={post.id} id="post-list">
-            <div className="post-profiles">
-                <img src={"/moutain-and-sky-from-pov-2d.png"} alt="รูปภาพตัวอย่าง" />
-                <div className="user-details"><h1>Name</h1>
-                <h2>{post.createdAt.toDate().toLocaleString()}</h2></div>
+    <ul style={{ paddingLeft: "0px" }} id="comment-ul">
+      {posts.map((post, index) => (
+        <li key={post.id} id="post-list">
+          <div className="post-profiles">
+            <img
+              src={"/moutain-and-sky-from-pov-2d.png"}
+              alt="รูปภาพตัวอย่าง"
+            />
+            <div className="user-details">
+              <h1>Name</h1>
+              <h2>{post.createdAt.toDate().toLocaleString()}</h2>
             </div>
-            <p>{post.content}</p>
-            <div className="interact-icons-section">
-              <button>
-                <IconHeartCircle width={'38.8px'} height={'36.8px'}/>
-                <label>LIKE</label>
-              </button>
-              {/* เรียกใช้งานฟังก์ชัน toggleCommentForm เมื่อคลิกปุ่ม Comment */}
-              <button onClick={() => toggleCommentForm(index)}>
-                <IconComment width={'36.8px'} height={'36.8px'}/>
-                <label>COMMENT</label>
-              </button>
+          </div>
+          <p>{post.content}</p>
+          <div className="interact-icons-section">
+            <button>
+              <IconHeartCircle width={"38.8px"} height={"36.8px"} />
+              <label>LIKE</label>
+            </button>
+            {/* เรียกใช้งานฟังก์ชัน toggleCommentForm เมื่อคลิกปุ่ม Comment */}
+            <button onClick={() => toggleCommentForm(index)}>
+              <IconComment width={"36.8px"} height={"36.8px"} />
+              <label>COMMENT</label>
+            </button>
+          </div>
+          {/* แสดง CommentForm และ CommentList ถ้า openCommentForms[index] เป็น true */}
+          {openCommentForms[index] && (
+            <div className="comment-form active">
+              <CommentForm
+                postId={post.id}
+                firestore={firestore}
+                className="comment-form"
+              />
             </div>
-            {/* แสดง CommentForm และ CommentList ถ้า openCommentForms[index] เป็น true */}
-            {openCommentForms[index] && (
-              <div>
-                <CommentForm postId={post.id} firestore={firestore} />
-              </div>
-            )}
-            <CommentList postId={post.id} />
-          </li>
-        ))}
-      </ul>
+          )}
+          <CommentList postId={post.id} />
+        </li>
+      ))}
+    </ul>
   );
 }
 

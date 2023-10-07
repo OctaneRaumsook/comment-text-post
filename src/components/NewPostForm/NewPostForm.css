@@ -16,6 +16,7 @@
   border: none;
   padding: 10px;
   box-shadow: inset 2px 2px 2px 0px #dddddd;
+  outline: none;
 }
 
 .NewPostForm button {

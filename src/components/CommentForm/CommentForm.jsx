@@ -1,9 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import {
-  collection,
-  addDoc,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import "./CommentForm.css";
 import SendIcon from "../Icons/SendIcon";
 
@@ -23,14 +20,11 @@ function CommentForm({ postId, firestore }) {
       handleSubmit(e);
     }
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
     if (comment.trim() === "") {
       return;
     }
-  
     try {
       const commentsRef = collection(firestore, "comments");
       await addDoc(commentsRef, {
@@ -38,7 +32,6 @@ function CommentForm({ postId, firestore }) {
         text: comment,
         createdAt: new Date(),
       });
-  
       setComment("");
     } catch (error) {
       console.error("Error adding comment: ", error);
@@ -65,13 +58,16 @@ function CommentForm({ postId, firestore }) {
             style={{ height: textareaHeight }}
           ></textarea>
           <div className="icon-interact">
-          <button
-            type="submit"
-            className={`submit-button ${comment.trim() === "" ? "disabled" : ""}`}
-            disabled={comment.trim() === ""}
-          >
-            <SendIcon width={'20.8px'} />
-          </button></div>
+            <button
+              type="submit"
+              className={`submit-button ${
+                comment.trim() === "" ? "disabled" : ""
+              }`}
+              disabled={comment.trim() === ""}
+            >
+              <SendIcon width={"20.8px"} />
+            </button>
+          </div>
         </div>
       </form>
     </>
