@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import './NewPostForm.css'
+
 // eslint-disable-next-line react/prop-types
 function NewPostForm({ firestore }) {
   const [content, setContent] = useState("");
@@ -24,17 +25,17 @@ function NewPostForm({ firestore }) {
 
   return (
     <div className="NewPostForm">
-      <form onSubmit={handleSubmit} >
-        <div>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-          ></textarea>
-        </div>
-        <button type="submit">โพสต์</button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <textarea
+              id="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+            ></textarea>
+          </div>
+          <button type="submit">โพสต์</button>
+        </form>
     </div>
   );
 }

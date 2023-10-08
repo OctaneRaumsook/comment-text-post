@@ -33,9 +33,8 @@ function CommentList({ postId }) {
         console.error("Error fetching comments: ", error);
       }
     };
-
     fetchComments();
-
+    
     // สมัครสมาชิกในคอลเลกชันความคิดเห็นเพื่อสตรีมข้อมูล
     const commentsRef = collection(firestore, "comments");
     const commentQuery = query(
