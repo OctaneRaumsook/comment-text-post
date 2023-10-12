@@ -16,7 +16,7 @@ function NewPostForm({ firestore }) {
         createdAt: new Date(),
       });
 
-      // เคลียร์ค่าในฟอร์มหลังจากบันทึกโพส
+      // clear data that use to post
       setContent("");
     } catch (error) {
       console.error("Error adding post: ", error);
@@ -34,7 +34,7 @@ function NewPostForm({ firestore }) {
               required
             ></textarea>
           </div>
-          <button type="submit">โพสต์</button>
+          <button type="submit">Post!</button>
         </form>
     </div>
   );

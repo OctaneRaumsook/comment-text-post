@@ -13,11 +13,11 @@ function PostListItem({ post, index, openCommentForms, toggleCommentForm }) {
     <li key={post.id} id="post-list">
       <div className="post-profiles">
         <img
-          src={"/moutain-and-sky-from-pov-2d.png"}
+          src={"/virieiei.jpg"}
           alt="รูปภาพตัวอย่าง"
         />
         <div className="user-details">
-          <h1>Name</h1>
+          <h1>Virieiei</h1>
           <h2>{post.createdAt.toDate().toLocaleString()}</h2>
         </div>
       </div>
@@ -49,7 +49,6 @@ function PostList() {
   useEffect(() => {
     const postsRef = collection(firestore, "posts");
     const q = query(postsRef, orderBy("createdAt", "desc"));
-
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const postList = snapshot.docs.map((doc) => ({
         id: doc.id,

@@ -34,7 +34,6 @@ function CommentList({ postId }) {
       }
     };
     fetchComments();
-    
     // สมัครสมาชิกในคอลเลกชันความคิดเห็นเพื่อสตรีมข้อมูล
     const commentsRef = collection(firestore, "comments");
     const commentQuery = query(
@@ -49,9 +48,8 @@ function CommentList({ postId }) {
       }));
       setComments(updatedComments);
     });
-
     return () => {
-      // ยกเลิกการสมัครสมาชิกเมื่อคอมโพเนนต์ถูกยกเลิก
+      // ยกเลิก subscribe เมื่อคอมโพเนนต์ถูกยกเลิก
       unsubscribe();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -65,11 +63,11 @@ function CommentList({ postId }) {
           <li key={comment.id}>
             <div className="comment-section">
               <img
-                src={"/moutain-and-sky-from-pov-2d.png"}
+                src={"/virieiei.jpg"}
                 alt="รูปภาพตัวอย่าง"
               />
               <div className="comment-text">
-                <label>Name</label>
+                <label>Virieiei</label>
                 <p>{comment.text}</p>
               </div>
             </div>
